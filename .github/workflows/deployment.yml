@@ -21,4 +21,6 @@ jobs:
       run: docker-compose -f docker-compose.yml build
 
     - name: Run tests
-      run: docker-compose -f docker-compose.yml up --abort-on-container-exit
+      run: | # For now, as we don't have any tests in our project we'll just start and stop the services in this step.
+        docker-compose -f docker-compose.yml up -d
+        docker-compose -f docker-compose.yml down
